@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+:root{
+    font-size: 62.5%;            /*cada 10px é 1rem*/     
+    
+    /*cores primárias*/
+    --principalColor: hsl(170, 100%, 14%);
+    --mediumColor: hsl(170, 100%, 26%);
+    --lightColor: #DCE9E2;
+    --neutral: #FFFAF1;
+
+    /*cores secundárias*/
+    --title: #212529;
+    --text1: #495057;
+    --text2: #FFFFFF;
+}
+
+body{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+header{
+    width: 37.5rem;
+    margin: 4.1rem auto;
+    padding: 0 2rem;
+}
+
+h4{
+    font-size: 1.4rem;
+    color: var(--principalColor);
+    margin-bottom: 1.6rem;
+}
+
+h1{
+    font-size: 3.4rem;
+    color: var(--mediumColor);
+    line-height: 120%;
+    margin-bottom: 2.4rem;
+}
+
+p{
+    font-size: 1.8rem;
+    line-height: 150%;
+    color: var(--text1);
+    margin-bottom: 3.2rem;
+}
+
+button{
+    height: 6.2rem;
+    width: 26.3rem;
+    background: var(--principalColor);
+    border: none;
+    border-radius: 40px;
+    display: inline-block;         /*verificar código original: pega a linha inteira e joga os outros elementos para baixo*/
+    margin: 0 auto 6rem auto;
+
+    color: var(--text2);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+}
