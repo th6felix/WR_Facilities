@@ -1,12 +1,17 @@
+/*=============GERAL==================*/
+
 *{
     margin: 0;
-    box-sizing: border-box
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 :root{
-    font-size: 62.5%;            /*cada 10px é 1rem*/     
+    font-size: 62.5%;            /*cada 10px é 1rem*/  
+
+    --navHeight: 7.2rem;
     
     /*cores primárias*/
     --principalColor: hsl(170, 100%, 14%);
@@ -20,39 +25,68 @@
     --text2: #FFFFFF;
 }
 
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
 body{
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
     text-align: center;
 }
 
-header{
+.wrapper{
     width: 37.5rem;
-    margin: 4.1rem auto;
-    padding: 0 2rem;
+    margin-inline: auto;
+    padding-inline: 2.4rem;
 }
 
-h4{
+ul{
+    list-style: none;
+}
+
+
+/*=============HEADER==================*/
+
+header{
+    margin-top: calc(4.1rem + var(--navHeight)) ;
+}
+
+header::before{
+    content: "";         /*antes de td header, colocar conteúdo determinado, no caso vazio*/
+    width: 100%;
+    height: calc(110rem + var(--navHeight));
+    background-color: var(--lightColor);
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header h4{
     font-size: 1.4rem;
     color: var(--principalColor);
     margin-bottom: 1.6rem;
 }
 
-h1{
+header h1{
     font-size: 3.4rem;
     color: var(--mediumColor);
-    line-height: 120%;
+    line-height: 130%;
     margin-bottom: 2.4rem;
 }
 
-p{
+header p{
     font-size: 1.8rem;
     line-height: 150%;
     color: var(--text1);
     margin-bottom: 3.2rem;
 }
 
-button{
+header button{
     height: 6.2rem;
     width: 26.3rem;
     background: var(--principalColor);
@@ -71,3 +105,94 @@ button{
     align-items: center;
     gap: 1.6rem;
 }
+
+header img{
+    width: 26rem;
+    display: block;         /*tirar espaço entre elementos*/
+    margin-inline: auto;
+}
+
+.stats{
+    width: 32.7rem;
+    padding-block: 4rem;
+    margin-inline: auto;
+    background: var(--neutral);
+    border: 1px solid var(--lightColor);
+    border-radius: .6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.stat h3{
+    font-size: 4.8rem;
+    color: var(--title);
+    line-height: 130%;
+    margin-bottom: 0.4rem;
+}
+
+.stat p{
+    margin: 0;
+    color: var(--principalColor);
+    font-size: 1.6rem;
+    line-height: 150%;
+}
+
+
+/*=============NAVIGATION==================*/
+
+nav{
+    display: flex;
+    height: var(--navHeight);
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);            /*calcula tamanho do elemento e desloca pra direita ou esquerda conforme determinado. left + translateX coloca no meio do eixo x*/
+}
+
+nav .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll{
+    background: var(--mediumColor);
+    width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path{           /*nth-child: seleciona o nº do filho dentre a ordem dos filhos*/
+    fill: var(--neutral);           /*letras da logo*/
+}
+
+nav.scroll svg:nth-child(2) path{
+    stroke: var(--neutral);         /*linhas do menu hamburguer e letras*/
+}
+
+
+/*=============MENU EXPANDED==================*/
+
+.menu{
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.menuExpanded .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--principalColor);
+}
+
+body.menuExpanded nav{
+    position: relative;
+
+}
+
+
+
+/* arrumar posição dos elementos do menu no html para botões ficarem do mesmo tamanho */
