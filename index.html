@@ -12,7 +12,7 @@
 <body onscroll="onScroll()" class="">
     <nav id="navigation" class="">
         <div class="wrapper">
-            <a class="logo" href="#">
+            <a class="logo" href="#home">
                 <!-- colocar logo da wr, por svg, via figma -->
                 <svg width="133" height="18" viewBox="0 0 133 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -66,17 +66,18 @@
             </button>
             <div class="menu">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Serviços</a></li>
-                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#home" onclick="closeMenu()">Início</a></li>
+                    <li><a href="#services" onclick="closeMenu()">Serviços</a></li>
+                    <li><a href="#" onclick="closeMenu()">Sobre</a></li>
                 </ul>
 
                 <a class="button" href="#">Agende uma limpeza</a>
 
                 <ul class="socialMedias">
                     <li>
-                        <a href="https://www.linkedin.com/in/wr-facilities-b17442231/?trk=public_profile_browsemap&originalSubdomain=br" target="_blank">
-                        <!-- svg linkedin -->
+                        <a href="https://www.linkedin.com/in/wr-facilities-b17442231/?trk=public_profile_browsemap&originalSubdomain=br"
+                            target="_blank">
+                            <!-- svg linkedin -->
                         </a>
                     </li>
                     <li>
@@ -109,7 +110,7 @@
         </div>
     </nav>
 
-    <header class="wrapper">
+    <header id="home" class="wrapper">
         <h4>Boas-vindas ao WR Facilities 👋</h4>
         <h1>Assistência Profissional para Serviços Gerais</h1>
         <p>Os profissionais da WR Facilities vão além das limpezas superficiais para tornar seu ambiente mais agradável.
@@ -140,6 +141,47 @@
             </div>
         </div>
     </header>
+
+    <section id="services">
+        <div class="wrapper">
+            <header>
+                <h4>Serviços</h4>
+                <h2>Como podemos ajudá-lo a tornar seu ambiente melhor?</h2>
+            </header>
+            <div class="cards">
+                <div class="card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                        <path d="M17.091 8.18182L10.091 15.1818L6.90918 12" stroke="#00856F" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Limpeza de Pisos</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi ex debitis veniam officiis obcaecati qui fugit vel amet aut.</p>
+                </div>
+                <div class="card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                        <path d="M17.091 8.18182L10.091 15.1818L6.90918 12" stroke="#00856F" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Limpeza em Altura</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi ex debitis veniam officiis obcaecati qui fugit vel amet aut.</p>
+                </div>
+                <div class="card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                        <path d="M17.091 8.18182L10.091 15.1818L6.90918 12" stroke="#00856F" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Limpeza Pós-Obra</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi ex debitis veniam officiis obcaecati qui fugit vel amet aut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ScrollReaveal Lib -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="main.js"></script>
 </body>

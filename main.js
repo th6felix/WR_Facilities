@@ -7,6 +7,7 @@ function onScroll(){
     
 }
 
+
 function openMenu(){
     document.body.classList.add('menuExpanded')
 }
@@ -14,3 +15,6 @@ function openMenu(){
 function closeMenu(){
     document.body.classList.remove('menuExpanded')
 }
+
+
+ScrollReveal({}).reveal('#home');

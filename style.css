@@ -17,12 +17,17 @@
     --principalColor: hsl(170, 100%, 14%);
     --mediumColor: hsl(170, 100%, 26%);
     --lightColor: #DCE9E2;
+    --lightColor2: #F7F9F9;
     --neutral: #FFFAF1;
 
     /*cores secundárias*/
     --title: #212529;
     --text1: #495057;
     --text2: #FFFFFF;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 html, body{
@@ -35,6 +40,7 @@ body{
     font-size: 1.6rem;
     text-align: center;
     overflow: overlay;          /*barra de rolagem sobrepõe a página ao invés de somar na largura da tela*/
+    background: var(--lightColor2);
 }
 
 .wrapper{
@@ -47,6 +53,9 @@ ul{
     list-style: none;
 }
 
+section{
+    padding-block: 10rem;
+}
 
 /*=============NAVIGATION==================*/
 
@@ -108,6 +117,10 @@ body.menuExpanded .menu, body.menuExpanded .closeMenu{
     display: block;
 }
 
+.menu{
+    transform: translateY(100%);
+}
+
 body.menuExpanded .menu{
     position: fixed;
     top: 0;
@@ -120,6 +133,9 @@ body.menuExpanded .menu{
     flex-direction: column;
     align-items: center;
     padding-top: var(--navHeight);
+
+    transition: transform 400ms;
+    transform: translateY(0);
 }
 
 body.menuExpanded nav{
@@ -176,13 +192,13 @@ body.menuExpanded button path{
 }
 
 
-/*=============HEADER==================*/
+/*=============HOME==================*/
 
-header{
-    margin-top: calc(4.1rem + var(--navHeight)) ;
+#home{
+    padding-top: calc(4.1rem + var(--navHeight)) ;
 }
 
-header::before{
+#home::before{
     content: "";         /*antes de td header, colocar conteúdo determinado, no caso vazio*/
     width: 100%;
     height: calc(106rem + var(--navHeight));
@@ -195,30 +211,30 @@ header::before{
     z-index: -1;
 }
 
-header h4{
+#home h4{
     font-size: 1.4rem;
     color: var(--principalColor);
     margin-bottom: 1.6rem;
 }
 
-header h1{
+#home h1{
     font-size: 3.4rem;
     color: var(--mediumColor);
     line-height: 130%;
     margin-bottom: 2.4rem;
 }
 
-header p{
+#home p{
     font-size: 1.8rem;
     line-height: 150%;
     color: var(--text1);
     margin-bottom: 3.2rem;
 }
 
-header button{
+#home button{
     height: 6.2rem;
     width: 26.3rem;
-    background: var(--principalColor);
+    background: var(--mediumColor);
     border: none;
     border-radius: 40px;
     display: inline-block;         /*verificar código original: pega a linha inteira e joga os outros elementos para baixo*/
@@ -235,7 +251,7 @@ header button{
     gap: 1.6rem;
 }
 
-header img{
+#home img{
     width: 26rem;
     display: block;         /*tirar espaço entre elementos*/
     margin-inline: auto;
@@ -271,3 +287,39 @@ header img{
 }
 
 
+/*=============SERVICES==================*/
+
+#services header h4{
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: var(--mediumColor);
+    margin-bottom: 1.6rem;
+}
+
+#services header h2{
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--title);
+    margin-bottom: 6rem;
+}
+
+#services .cards{
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+}
+
+#services .card{
+    padding: 2.4rem;
+    text-align: left;
+    border: 0.1rem solid var(--lightColor);
+    border-radius: .6rem;
+    background: var(--text2);
+}
+
+#services .card h3{
+    margin-block: 1.6rem;
+}
