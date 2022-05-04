@@ -34,6 +34,7 @@ body{
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
     text-align: center;
+    overflow: overlay;          /*barra de rolagem sobrepõe a página ao invés de somar na largura da tela*/
 }
 
 .wrapper{
@@ -47,6 +48,134 @@ ul{
 }
 
 
+/*=============NAVIGATION==================*/
+
+nav{
+    display: flex;
+    height: var(--navHeight);
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);            /*calcula tamanho do elemento e desloca pra direita ou esquerda conforme determinado. left + translateX coloca no meio do eixo x*/
+}
+
+nav .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll{
+    background: var(--mediumColor);
+    width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path{           /*nth-child: seleciona o nº do filho dentre a ordem dos filhos*/
+    fill: var(--neutral);           /*letras da logo*/
+}
+
+nav.scroll button path{
+    stroke: var(--neutral);         /*linhas do menu hamburguer e letras*/
+}
+
+nav button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*=============MENU EXPANDED==================*/
+
+body.menuExpanded{
+    overflow: hidden;
+}
+
+body.menuExpanded > :not(nav){          /*aplicar regras abaixo para todos os filhos (>) desta classe, menos (:not) no nav*/
+    display: none;          /*por questões de melhor acessibilidade nos botões, esconde-se as informações das camadas abaixo*/
+}
+
+.menu, .closeMenu, body.menuExpanded .openMenu{
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+body.menuExpanded .menu, body.menuExpanded .closeMenu{
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+body.menuExpanded .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--mediumColor);
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--navHeight);
+}
+
+body.menuExpanded nav{
+    position: relative;
+}
+
+.menu ul:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-top: 6rem;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: var(--text2);
+}   
+
+.menu .button{
+    background: var(--neutral);
+    border-radius: 4rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--mediumColor);
+    display: inline-block;
+    padding: 1.6rem 3.2rem; 
+    margin: 4.8rem 0 8rem 0;
+}
+
+.socialMedias{
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+body.menuExpanded .logo, body.menuExpanded button{
+    position: relative;
+    z-index: 10;
+}
+
+body.menuExpanded .logo path{           
+    fill: var(--neutral);           
+}
+
+body.menuExpanded button path{
+    stroke: var(--neutral);         
+}
+
+
 /*=============HEADER==================*/
 
 header{
@@ -56,7 +185,7 @@ header{
 header::before{
     content: "";         /*antes de td header, colocar conteúdo determinado, no caso vazio*/
     width: 100%;
-    height: calc(110rem + var(--navHeight));
+    height: calc(106rem + var(--navHeight));
     background-color: var(--lightColor);
     display: block;
 
@@ -142,57 +271,3 @@ header img{
 }
 
 
-/*=============NAVIGATION==================*/
-
-nav{
-    display: flex;
-    height: var(--navHeight);
-
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);            /*calcula tamanho do elemento e desloca pra direita ou esquerda conforme determinado. left + translateX coloca no meio do eixo x*/
-}
-
-nav .wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav.scroll{
-    background: var(--mediumColor);
-    width: 100vw;
-}
-
-nav.scroll svg:nth-child(1) path{           /*nth-child: seleciona o nº do filho dentre a ordem dos filhos*/
-    fill: var(--neutral);           /*letras da logo*/
-}
-
-nav.scroll svg:nth-child(2) path{
-    stroke: var(--neutral);         /*linhas do menu hamburguer e letras*/
-}
-
-
-/*=============MENU EXPANDED==================*/
-
-.menu{
-    opacity: 0;
-    visibility: hidden;
-}
-
-body.menuExpanded .menu{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--principalColor);
-}
-
-body.menuExpanded nav{
-    position: relative;
-
-}
-
-
-
-/* arrumar posição dos elementos do menu no html para botões ficarem do mesmo tamanho */
