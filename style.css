@@ -53,8 +53,42 @@ ul{
     list-style: none;
 }
 
+img{
+    max-width: 100%;
+}
+
 section{
     padding-block: 10rem;
+}
+
+section header h4{
+    font-size: 1.4rem;
+    color: var(--principalColor);
+    margin-bottom: 1.6rem;
+    font-size: 700;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+section header h2{
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--title);
+}
+
+section header h1{
+    font-size: 3.4rem;
+    color: var(--mediumColor);
+    line-height: 130%;
+    margin-bottom: 2.4rem;
+}
+
+section p{
+    color: var(--text1);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
 }
 
 /*=============NAVIGATION==================*/
@@ -65,8 +99,9 @@ nav{
 
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);            /*calcula tamanho do elemento e desloca pra direita ou esquerda conforme determinado. left + translateX coloca no meio do eixo x*/
+    z-index: 100;
+    width: 100vw;
+
 }
 
 nav .wrapper{
@@ -77,10 +112,9 @@ nav .wrapper{
 
 nav.scroll{
     background: var(--mediumColor);
-    width: 100vw;
 }
 
-nav.scroll svg:nth-child(1) path{           /*nth-child: seleciona o nº do filho dentre a ordem dos filhos*/
+nav.scroll .logo path{           /*nth-child: seleciona o nº do filho dentre a ordem dos filhos*/
     fill: var(--neutral);           /*letras da logo*/
 }
 
@@ -102,7 +136,7 @@ body.menuExpanded{
 }
 
 body.menuExpanded > :not(nav){          /*aplicar regras abaixo para todos os filhos (>) desta classe, menos (:not) no nav*/
-    display: none;          /*por questões de melhor acessibilidade nos botões, esconde-se as informações das camadas abaixo*/
+    visibility: hidden;          /*por questões de melhor acessibilidade nos botões, esconde-se as informações das camadas abaixo*/
 }
 
 .menu, .closeMenu, body.menuExpanded .openMenu{
@@ -136,10 +170,6 @@ body.menuExpanded .menu{
 
     transition: transform 400ms;
     transform: translateY(0);
-}
-
-body.menuExpanded nav{
-    position: relative;
 }
 
 .menu ul:nth-child(1){
@@ -211,19 +241,6 @@ body.menuExpanded button path{
     z-index: -1;
 }
 
-#home h4{
-    font-size: 1.4rem;
-    color: var(--principalColor);
-    margin-bottom: 1.6rem;
-}
-
-#home h1{
-    font-size: 3.4rem;
-    color: var(--mediumColor);
-    line-height: 130%;
-    margin-bottom: 2.4rem;
-}
-
 #home p{
     font-size: 1.8rem;
     line-height: 150%;
@@ -289,19 +306,7 @@ body.menuExpanded button path{
 
 /*=============SERVICES==================*/
 
-#services header h4{
-    font-size: 1.4rem;
-    line-height: 150%;
-    letter-spacing: 0.08rem;
-    text-transform: uppercase;
-    color: var(--mediumColor);
-    margin-bottom: 1.6rem;
-}
-
 #services header h2{
-    font-size: 3rem;
-    line-height: 3.9rem;
-    color: var(--title);
     margin-bottom: 6rem;
 }
 
@@ -322,4 +327,25 @@ body.menuExpanded button path{
 
 #services .card h3{
     margin-block: 1.6rem;
+}
+
+
+/*=============ABOUT==================*/
+
+#about{
+    text-align: left;
+    background: var(--neutral);
+}
+
+#about header h2{
+    margin-bottom: 2.4rem;
+}
+
+#about .content p{
+    margin-block: 2.4rem 6rem;
+}
+
+#about .wrapper .content img{
+    margin-inline: auto;
+    border-radius: 1rem;
 }
