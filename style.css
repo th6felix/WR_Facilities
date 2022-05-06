@@ -269,13 +269,14 @@ body.menuExpanded button path{
 /*=============HOME==================*/
 
 #home{
+    padding-block: 0;
     padding-top: calc(4.1rem + var(--navHeight)) ;
 }
 
 #home::before{
     content: "";         /*antes de td header, colocar conteúdo determinado, no caso vazio*/
     width: 100%;
-    height: calc(72% + var(--navHeight));
+    height: calc(75% + var(--navHeight));
     background-color: var(--lightColor);
     display: block;
 
@@ -479,10 +480,28 @@ footer .socialMedias{
 
 @media (min-width: 1024px){
 
-    /*=============RESET==================*/ 
+    /*=============GERAL==================*/ 
+    
+    section{
+        padding-block: 16rem;
+    }
+
+    section header h2{
+        font-size: 4rem;
+        line-height: 5.2rem;
+    }
+
     .wrapper{
         width: min(112rem, 100%);
         display: grid;
+    }
+
+    .col-a{
+        grid-area: A;
+    }
+
+    .col-b{
+        grid-area: B;
     }
 
     /*=============NAV==================*/    
@@ -593,7 +612,7 @@ footer .socialMedias{
     /*=============HOME==================*/ 
 
     #home::before{
-        height: calc(85% - var(--navHeight));
+        height: calc(95% - var(--navHeight));
     }
 
     #home .wrapper {
@@ -605,7 +624,6 @@ footer .socialMedias{
     }
 
     #home .col-a{
-        grid-area: A;
         text-align: left;
     }
 
@@ -628,10 +646,6 @@ footer .socialMedias{
         border-radius: 1rem;
     }
 
-    #home .col-b{
-        grid-area: B;
-    }
-
     #home .stats{
         grid-area: C;
         flex-direction: row;
@@ -646,5 +660,82 @@ footer .socialMedias{
 
     #home .stats .stat{
         flex: 1;            /*preenche espaços entre elementos de forma igual*/
+    }
+
+
+    /*=============SERVICES==================*/ 
+
+    #services h2{
+        width: 47rem;
+        margin-inline: auto;
+    }
+
+    #services .cards{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+
+    #services .card{
+        width: 30%;
+        flex-grow: 1;           /*aumenta tamanho do elemento para que preencha espaços em excesso*/
+    }
+
+
+    /*=============ABOUT==================*/ 
+
+    #about .wrapper{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'B A';
+        gap: 6.7rem;
+    }
+
+    #about .col-a{
+        align-self: center;
+    }
+
+    #about .content p{
+        margin-bottom: 0;
+    }
+
+    #about .col-b img{
+        border-radius: 1rem;
+    }
+
+
+    /*=============CONTACT==================*/ 
+
+    #contact .wrapper{
+        grid-template-columns: 1fr 57.5rem;
+        grid-template-areas: 'A B';
+    }
+
+    #contact h2{
+        width: 40.4rem;
+    }
+
+    #contact .col-b img{
+        border-radius: 1rem;
+    }
+
+
+    /*=============ABOUT==================*/ 
+
+    footer .wrapper{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'A B';
+    }
+    
+    footer .col-a{
+        align-self: center;
+    }
+
+    footer .col-b{
+        align-self: center;
+        justify-self: flex-end;
+    }
+
+    footer p{
+        margin-bottom: 0;
     }
 }
