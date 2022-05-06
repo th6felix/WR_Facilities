@@ -45,7 +45,7 @@ body{
 }
 
 .wrapper{
-    width: 37.5rem;
+    width: min(50rem, 100%);            /*RESPONSIVIDADE TABLET: conteúdo se limita a 50rem, se a caixa for maior q 50rem, ocupar 100% da tela*/
     margin-inline: auto;
     padding-inline: 2.4rem;
 }
@@ -164,6 +164,10 @@ nav button{
     cursor: pointer;
 }
 
+nav .menu, nav .closeMenu{
+    position: fixed;
+}
+
 
 /*=============MENU EXPANDED==================*/
 
@@ -192,7 +196,6 @@ body.menuExpanded .menu, body.menuExpanded .closeMenu{
 }
 
 body.menuExpanded .menu{
-    position: fixed;
     top: 0;
     left: 0;
     background: var(--mediumColor);
@@ -272,7 +275,7 @@ body.menuExpanded button path{
 #home::before{
     content: "";         /*antes de td header, colocar conteúdo determinado, no caso vazio*/
     width: 100%;
-    height: calc(113rem + var(--navHeight));
+    height: calc(72% + var(--navHeight));
     background-color: var(--lightColor);
     display: block;
 
@@ -302,7 +305,7 @@ body.menuExpanded button path{
 }
 
 .stats{
-    width: 32.7rem;
+    width: 100%;
     padding-block: 4rem;
     margin-inline: auto;
     background: var(--neutral);
@@ -383,6 +386,7 @@ body.menuExpanded button path{
 
 
 /*=============CONTACT==================*/
+
 #contact{
     text-align: left;
 }
@@ -468,4 +472,179 @@ footer .socialMedias{
 
 #backToTopButton circle{
     fill: var(--mediumColor);
+}
+
+
+/*=============RESPONSIVIDADE==================*/
+
+@media (min-width: 1024px){
+
+    /*=============RESET==================*/ 
+    .wrapper{
+        width: min(112rem, 100%);
+        display: grid;
+    }
+
+    /*=============NAV==================*/    
+    nav#navigation .wrapper *{
+        margin: 0;
+        padding: 0;
+        visibility: initial;
+        display: initial;
+        opacity: initial;
+        flex-direction: initial;
+        position: initial;
+        font-size: initial;
+        transform: initial;
+        color: initial;
+        background-color: initial;
+        font-weight: initial;
+        filter: initial;
+    }
+
+    nav#navigation .closeMenu,
+    nav#navigation .openMenu,
+    nav#navigation .socialMedias{
+        display: none;
+    }
+
+    nav#navigation .menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    nav#navigation .menu ul:nth-child(1){
+        display: flex;
+        gap: 3.2rem;
+    }
+
+    nav#navigation .menu li a{
+        color: var(--mediumColor);
+        opacity: 0.7;
+        transition: opacity .4s;
+    }
+
+    nav#navigation .menu li a::after{
+        content: '';          /*criação de elemento, no caso borda dinâmica inferior*/
+        width: 0%;
+        height: 2px;
+        background-color: var(--mediumColor);
+        display: block;
+        position: relative;
+        bottom: -2rem;
+        left: -1rem;
+        transition: width 0.2s;
+    }
+
+    nav#navigation .menu li a:hover::after{
+        padding-inline: 1rem;
+        width: 100%;
+    }
+    
+    nav#navigation.scroll .menu li a{
+        color: var(--lightColor2);
+        opacity: 0.6;
+    }
+    
+    nav#navigation .menu li a:hover,
+    nav#navigation.scroll .menu li a:hover{
+        opacity: 1;
+        font-weight: 700;
+    }
+    
+    nav#navigation.scroll .menu li a::after{
+        background-color: white;
+    }
+    
+    nav#navigation .menu a.button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2.4rem;
+        border: 1px solid var(--mediumColor);
+        border-radius: 4rem;
+        color: var(--mediumColor);
+        font-weight: 700;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        text-transform: uppercase;
+    }
+
+    nav#navigation .menu a.button:hover{
+        background-color: var(--principalColor);
+        border: none;
+        color: var(--text2);
+        filter: brightness(1.4);
+    }
+
+    nav#navigation.scroll .menu a.button{
+        border-color: white;
+        color: var(--text2);
+    }
+
+    nav#navigation.scroll .menu a.button:hover{
+        background-color: var(--principalColor);
+        border: none;
+    }
+
+
+    /*=============HOME==================*/ 
+
+    #home::before{
+        height: calc(85% - var(--navHeight));
+    }
+
+    #home .wrapper {
+        grid-template-columns: 60.5rem 1fr;
+        grid-template-areas: 
+        'A B'
+        'C C';
+        align-items: center;
+    }
+
+    #home .col-a{
+        grid-area: A;
+        text-align: left;
+    }
+
+    #home h1{
+        font-size: 5.2rem;
+    }
+
+    #home p{
+        font-size: 1.8rem;
+    }
+
+    #home .button{
+        margin: 0;
+    }
+
+    #home img{
+        height: 45rem;
+        width: 35rem;
+        margin-right: 0;
+        border-radius: 1rem;
+    }
+
+    #home .col-b{
+        grid-area: B;
+    }
+
+    #home .stats{
+        grid-area: C;
+        flex-direction: row;
+        padding: 4rem 4rem 3rem 4rem;
+        gap: 0;
+        margin-top: 1rem;
+    }
+
+    #home .stats .stat + .stat{         /*procurar um .stat q tem um stat anterior a ele*/
+        border-left: 1px solid var(--lightColor);
+    }
+
+    #home .stats .stat{
+        flex: 1;            /*preenche espaços entre elementos de forma igual*/
+    }
 }
